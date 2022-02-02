@@ -20,7 +20,7 @@ public class Person {
 
        void giveTime(){
         if(this.Pwatch != null) {
-            System.out.println("Il est: " + this.Pwatch.hr +"h" + this.Pwatch.min );
+            System.out.println("Il est: " + this.Pwatch.getHr() +"h" + this.Pwatch.getMin() );
 
         }
         else {
