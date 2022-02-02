@@ -32,6 +32,10 @@ public class Montre {
         this.min = min;
     }
 
+    public String toString(){
+        return String.format("%02d:%02d",this.hr,this.min);
+    }
+
     public void oneMinuteMore(){
         if ((this.min+1 )>59){
             this.min = 0;

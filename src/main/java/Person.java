@@ -1,35 +1,48 @@
 
 public class Person {
+
     String name;
-    Montre Pwatch;
-    Person(String name){
+    Montre watch;
+
+    public Person(String name){
         this.name = name;
-        this.Pwatch = null;
+        this.watch = null;
     }
 
-    void watchOwner( Montre m){
-        if(this.Pwatch == null){
+    public Person(String name, Montre pWatch){
+        this.name = name;
+        this.watch = pWatch;
+    }
 
-            this.Pwatch = m;
-            System.out.println("Cette montre appartient à : "+ this.name);
-        }
-        else {
-            System.out.println("Elle a déjà une montre");
+    public void setWatch(Montre pWatch) {
+        this.watch = pWatch;
+    }
+
+    public Montre getWatch() {
+        return watch;
+    }
+
+    public void removeWatch(){
+        if(this.getWatch() != null){
+            this.watch = null;
         }
     }
 
-       void giveTime(){
-        if(this.Pwatch != null) {
-            System.out.println("Il est: " + this.Pwatch.getHr() +"h" + this.Pwatch.getMin() );
-
+    public String giveTime(){
+        String strTime = "";
+        if(this.watch != null) {
+            System.out.println("Il est: " + this.watch.getHr() +"h" + this.watch.getMin() );
+            strTime = watch.toString();
         }
-        else {
-            System.out.println("Je suis désolé(e) mais je n'ai pas de montre");
-        }
+        return strTime;
     }
 
-    void demanderHeure(Person p){
-        p.giveTime();
+    public void askHour(Person p){
+        String result = p.giveTime();
+        if(result != "" && this.watch != null){
+            this.watch.setHr(Integer.parseInt(result.substring(0,2)));
+            this.watch.setMin(Integer.parseInt(result.substring(2)));
+        }
     }
 
 }
