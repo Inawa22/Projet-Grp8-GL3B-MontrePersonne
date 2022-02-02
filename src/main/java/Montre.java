@@ -6,11 +6,14 @@ public class Montre {
     public Montre(int h, int m) {
         this.hr = h;
         this.min = m;
+
+        System.out.println("Une montre vient d'être créer et initialiser à "+hr+":"+min);
     }
 
     public Montre(Montre m) {
         this.hr = m.hr;
         this.min = m.min;
+        System.out.println("Une montre vient d'être créer et initialiser à partir de l'heure d'une autre montre ("+hr+":"+min+")");
     }
 
     public int getHr(){
@@ -40,6 +43,13 @@ public class Montre {
         }else{
             this.min++;
         }
+    }
+
+    public static void main(){
+
+        Montre richardMille = new Montre(9,25);
+
+        Montre casio = new Montre(richardMille);
     }
 
 }
